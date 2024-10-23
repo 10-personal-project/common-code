@@ -26,27 +26,10 @@ public class ApiResp<T>
         return resp;
     }
 
-    public static <R> ApiResp<R> success(R data)
+    public static <R> ApiResp<R> successData(R data)
     {
         ApiResp<R> resp = new ApiResp<>();
         resp.status = StatusCode.SUCCESS.code;
-        resp.data = data;
-        return resp;
-    }
-
-    public static ApiResp<String> fail(StatusCode statusCode)
-    {
-        Assert.isTrue(statusCode.code != StatusCode.SUCCESS.code.intValue(), "失败的返回【status】不能使用【{}】", statusCode.code);
-        ApiResp<String> resp = new ApiResp<>();
-        resp.status = statusCode.code;
-        return resp;
-    }
-
-    public static <R> ApiResp<R> fail(StatusCode statusCode, R data)
-    {
-        Assert.isTrue(statusCode.code != StatusCode.SUCCESS.code.intValue(), "失败的返回【status】不能使用【{}】", statusCode.code);
-        ApiResp<R> resp = new ApiResp<>();
-        resp.status = statusCode.code;
         resp.data = data;
         return resp;
     }
@@ -60,7 +43,7 @@ public class ApiResp<T>
         return resp;
     }
 
-    public static <R> ApiResp<R> fail(StatusCode statusCode, R data, CharSequence template, Object... params)
+    public static <R> ApiResp<R> failData(StatusCode statusCode, R data, CharSequence template, Object... params)
     {
         Assert.isTrue(statusCode.code != StatusCode.SUCCESS.code.intValue(), "失败的返回【status】不能使用【{}】", statusCode.code);
         ApiResp<R> resp = new ApiResp<>();
