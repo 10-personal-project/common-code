@@ -81,7 +81,13 @@ public class ApiResp<T>
          * 业务失败 <br/>
          * 未登录
          */
-        NO_LOGIN(2);
+        NO_LOGIN(2),
+
+        /**
+         * 业务失败 <br/>
+         * 全局捕获异常
+         */
+        GLOBAL_EXCEPTION(3);
 
         public final Integer code;
 
