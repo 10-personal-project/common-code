@@ -51,6 +51,15 @@ public class ApiResp<T>
         return resp;
     }
 
+    public static <R> ApiResp<R> fail(StatusCode statusCode, CharSequence template, Object... params)
+    {
+        Assert.isTrue(statusCode.code != StatusCode.SUCCESS.code.intValue(), "失败的返回【status】不能使用【{}】", statusCode.code);
+        ApiResp<R> resp = new ApiResp<>();
+        resp.status = statusCode.code;
+        resp.errMsg = StrUtil.format(template, params);
+        return resp;
+    }
+
     public static <R> ApiResp<R> fail(StatusCode statusCode, R data, CharSequence template, Object... params)
     {
         Assert.isTrue(statusCode.code != StatusCode.SUCCESS.code.intValue(), "失败的返回【status】不能使用【{}】", statusCode.code);
