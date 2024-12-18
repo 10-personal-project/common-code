@@ -1,4 +1,4 @@
-package pers.baberuth.commoncode;
+package pers.awesomeme.commoncode;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Assert;

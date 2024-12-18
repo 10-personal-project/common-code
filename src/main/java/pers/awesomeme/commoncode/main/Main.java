@@ -1,4 +1,4 @@
-package pers.baberuth.commoncode.main;
+package pers.awesomeme.commoncode.main;
 
 public class Main
 {
